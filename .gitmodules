@@ -1,0 +1,6 @@
+[submodule "3rdParty/openssl-xcode"]
+	path = 3rdParty/openssl-xcode
+	url = git@github.com:hoccer/openssl-xcode.git
+[submodule "3rdParty/csrp"]
+	path = 3rdParty/csrp
+	url = https://github.com/cocagne/csrp.git
