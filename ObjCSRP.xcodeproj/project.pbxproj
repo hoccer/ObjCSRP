@@ -16,6 +16,7 @@
 		631F6D0D170B7E8900FB28D5 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
 		631F6D13170B7E8900FB28D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631F6D11170B7E8900FB28D5 /* InfoPlist.strings */; };
 		631F6D16170B7E8900FB28D5 /* ObjCSRPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D15170B7E8900FB28D5 /* ObjCSRPTests.m */; };
+		631F6D22170B934F00FB28D5 /* srp.c in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D20170B934F00FB28D5 /* srp.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 631F6CF3170B7E8900FB28D5;
 			remoteInfo = ObjCSRP;
+		};
+		631F6D27170B940900FB28D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631F6D23170B940900FB28D5 /* openssl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9069D28C0FCE659A0042E34C;
+			remoteInfo = crypto;
+		};
+		631F6D29170B951600FB28D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631F6D23170B940900FB28D5 /* openssl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9069D28B0FCE659A0042E34C;
+			remoteInfo = crypto;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -54,6 +69,9 @@
 		631F6D12170B7E8900FB28D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		631F6D14170B7E8900FB28D5 /* ObjCSRPTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCSRPTests.h; sourceTree = "<group>"; };
 		631F6D15170B7E8900FB28D5 /* ObjCSRPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCSRPTests.m; sourceTree = "<group>"; };
+		631F6D20170B934F00FB28D5 /* srp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = srp.c; path = 3rdParty/csrp/srp.c; sourceTree = "<group>"; };
+		631F6D21170B934F00FB28D5 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = srp.h; path = 3rdParty/csrp/srp.h; sourceTree = "<group>"; };
+		631F6D23170B940900FB28D5 /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "3rdParty/openssl-xcode/openssl.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +100,8 @@
 		631F6CEB170B7E8900FB28D5 = {
 			isa = PBXGroup;
 			children = (
+				631F6D23170B940900FB28D5 /* openssl.xcodeproj */,
+				631F6D1F170B933E00FB28D5 /* CSRP */,
 				631F6CF9170B7E8900FB28D5 /* ObjCSRP */,
 				631F6D0E170B7E8900FB28D5 /* ObjCSRPTests */,
 				631F6CF6170B7E8900FB28D5 /* Frameworks */,
@@ -145,6 +165,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		631F6D1F170B933E00FB28D5 /* CSRP */ = {
+			isa = PBXGroup;
+			children = (
+				631F6D20170B934F00FB28D5 /* srp.c */,
+				631F6D21170B934F00FB28D5 /* srp.h */,
+			);
+			name = CSRP;
+			sourceTree = "<group>";
+		};
+		631F6D24170B940900FB28D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				631F6D28170B940900FB28D5 /* libcrypto.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +196,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				631F6D2A170B951600FB28D5 /* PBXTargetDependency */,
 			);
 			name = ObjCSRP;
 			productName = ObjCSRP;
@@ -203,6 +241,12 @@
 			mainGroup = 631F6CEB170B7E8900FB28D5;
 			productRefGroup = 631F6CF5170B7E8900FB28D5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 631F6D24170B940900FB28D5 /* Products */;
+					ProjectRef = 631F6D23170B940900FB28D5 /* openssl.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				631F6CF3170B7E8900FB28D5 /* ObjCSRP */,
@@ -210,6 +254,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		631F6D28170B940900FB28D5 /* libcrypto.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcrypto.a;
+			remoteRef = 631F6D27170B940900FB28D5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		631F6D02170B7E8900FB28D5 /* Resources */ = {
@@ -244,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				631F6CFF170B7E8900FB28D5 /* ObjCSRP.m in Sources */,
+				631F6D22170B934F00FB28D5 /* srp.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +317,11 @@
 			isa = PBXTargetDependency;
 			target = 631F6CF3170B7E8900FB28D5 /* ObjCSRP */;
 			targetProxy = 631F6D0B170B7E8900FB28D5 /* PBXContainerItemProxy */;
+		};
+		631F6D2A170B951600FB28D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = crypto;
+			targetProxy = 631F6D29170B951600FB28D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -336,9 +396,11 @@
 				DSTROOT = /tmp/ObjCSRP.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjCSRP/ObjCSRP-Prefix.pch";
+				HEADER_SEARCH_PATHS = "3rdParty/openssl-xcode/openssl/include/";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -348,9 +410,11 @@
 				DSTROOT = /tmp/ObjCSRP.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjCSRP/ObjCSRP-Prefix.pch";
+				HEADER_SEARCH_PATHS = "3rdParty/openssl-xcode/openssl/include/";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -403,6 +467,7 @@
 				631F6D1B170B7E8900FB28D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		631F6D1C170B7E8900FB28D5 /* Build configuration list for PBXNativeTarget "ObjCSRPTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +476,7 @@
 				631F6D1E170B7E8900FB28D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
