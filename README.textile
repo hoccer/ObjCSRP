@@ -1,0 +1,10 @@
+h1. ObjCSRP
+
+A bunch of submodules and some wrapper code to use Secure Remote Password (SRP) on iOS.
+
+h2. Submodule Graph
+
+* ObjCSRP
+** csrp
+** openssl-xcode
+*** openssl
