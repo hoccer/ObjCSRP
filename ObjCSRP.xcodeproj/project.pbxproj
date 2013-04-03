@@ -643,6 +643,7 @@
 				631F6DA3170B9F5900FB28D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

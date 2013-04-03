@@ -66,9 +66,10 @@
                                        NULL, NULL );
 
     /* Begin authentication process */
+    const char * enteredPassword = [_password.text UTF8String];
     usr =  srp_user_new( alg, ng_type, username,
-                        (const unsigned char *)[_password.text UTF8String],
-                        strlen(password), NULL, NULL );
+                        (const unsigned char*)enteredPassword,
+                        strlen(enteredPassword), NULL, NULL );
 
     srp_user_start_authentication( usr, &auth_username, &bytes_A, &len_A );
 
