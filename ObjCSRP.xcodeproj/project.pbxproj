@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		631F6CF8170B7E8900FB28D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF7170B7E8900FB28D5 /* Foundation.framework */; };
-		631F6CFD170B7E8900FB28D5 /* ObjCSRP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 631F6CFC170B7E8900FB28D5 /* ObjCSRP.h */; };
-		631F6CFF170B7E8900FB28D5 /* ObjCSRP.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6CFE170B7E8900FB28D5 /* ObjCSRP.m */; };
+		631F6CFD170B7E8900FB28D5 /* HCSRP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 631F6CFC170B7E8900FB28D5 /* HCSRP.h */; };
+		631F6CFF170B7E8900FB28D5 /* HCSRP.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6CFE170B7E8900FB28D5 /* HCSRP.m */; };
 		631F6D07170B7E8900FB28D5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D06170B7E8900FB28D5 /* SenTestingKit.framework */; };
 		631F6D09170B7E8900FB28D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D08170B7E8900FB28D5 /* UIKit.framework */; };
 		631F6D0A170B7E8900FB28D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF7170B7E8900FB28D5 /* Foundation.framework */; };
@@ -63,7 +63,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				631F6CFD170B7E8900FB28D5 /* ObjCSRP.h in CopyFiles */,
+				631F6CFD170B7E8900FB28D5 /* HCSRP.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +73,8 @@
 		631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCSRP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		631F6CF7170B7E8900FB28D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		631F6CFB170B7E8900FB28D5 /* ObjCSRP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCSRP-Prefix.pch"; sourceTree = "<group>"; };
-		631F6CFC170B7E8900FB28D5 /* ObjCSRP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCSRP.h; sourceTree = "<group>"; };
-		631F6CFE170B7E8900FB28D5 /* ObjCSRP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCSRP.m; sourceTree = "<group>"; };
+		631F6CFC170B7E8900FB28D5 /* HCSRP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCSRP.h; sourceTree = "<group>"; };
+		631F6CFE170B7E8900FB28D5 /* HCSRP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSRP.m; sourceTree = "<group>"; };
 		631F6D05170B7E8900FB28D5 /* ObjCSRPTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCSRPTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		631F6D06170B7E8900FB28D5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		631F6D08170B7E8900FB28D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -173,8 +173,8 @@
 		631F6CF9170B7E8900FB28D5 /* ObjCSRP */ = {
 			isa = PBXGroup;
 			children = (
-				631F6CFC170B7E8900FB28D5 /* ObjCSRP.h */,
-				631F6CFE170B7E8900FB28D5 /* ObjCSRP.m */,
+				631F6CFC170B7E8900FB28D5 /* HCSRP.h */,
+				631F6CFE170B7E8900FB28D5 /* HCSRP.m */,
 				631F6CFA170B7E8900FB28D5 /* Supporting Files */,
 			);
 			path = ObjCSRP;
@@ -396,7 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631F6CFF170B7E8900FB28D5 /* ObjCSRP.m in Sources */,
+				631F6CFF170B7E8900FB28D5 /* HCSRP.m in Sources */,
 				631F6D22170B934F00FB28D5 /* srp.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
