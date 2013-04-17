@@ -63,16 +63,17 @@
                                        (const unsigned char *)[password UTF8String], [password lengthOfBytesUsingEncoding: NSUTF8StringEncoding],
                                        & saltBytes, & saltLength, & verificationKeyBytes, & verificationKeyLength,
                                        NULL, NULL);
+    NSLog(@"salt length: %d verifier length: %d", saltLength, verificationKeyLength);
     *salt = [NSData dataWithBytesNoCopy: (void*)saltBytes length: saltLength];
     *verificationKey = [NSData dataWithBytesNoCopy: (void*)verificationKeyBytes length: verificationKeyLength];
 }
 
 - (NSData*) startAuthentication {
-    const unsigned char * a;
+    const unsigned char * A;
     int aLength;
     const char * unusedUsername;
-    srp_user_start_authentication(_user, &unusedUsername, &a, &aLength);
-    return [NSData dataWithBytesNoCopy: (void*) a length: aLength];
+    srp_user_start_authentication(_user, &unusedUsername, &A, &aLength);
+    return [NSData dataWithBytesNoCopy: (void*) A length: aLength freeWhenDone: NO];
 }
 
 - (NSData*) processChallenge:(NSData *)salt B:(NSData *)b {
@@ -82,7 +83,7 @@
     if ( ! mBytes) {
         return nil;
     }
-    return [NSData dataWithBytesNoCopy: (void*)mBytes length: mLength];
+    return [NSData dataWithBytesNoCopy: (void*)mBytes length: mLength freeWhenDone: NO];
 }
 
 - (void) verifySession: (NSData*) hamk {
