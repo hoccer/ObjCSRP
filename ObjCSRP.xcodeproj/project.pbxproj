@@ -522,6 +522,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjCSRP/ObjCSRP-Prefix.pch";
 				HEADER_SEARCH_PATHS = "3rdParty/openssl-xcode/openssl/include/";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
