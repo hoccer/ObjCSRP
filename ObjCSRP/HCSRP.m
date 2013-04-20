@@ -63,7 +63,6 @@
                                        (const unsigned char *)[password UTF8String], [password lengthOfBytesUsingEncoding: NSUTF8StringEncoding],
                                        & saltBytes, & saltLength, & verificationKeyBytes, & verificationKeyLength,
                                        NULL, NULL);
-    NSLog(@"salt length: %d verifier length: %d", saltLength, verificationKeyLength);
     *salt = [NSData dataWithBytesNoCopy: (void*)saltBytes length: saltLength];
     *verificationKey = [NSData dataWithBytesNoCopy: (void*)verificationKeyBytes length: verificationKeyLength];
 }
