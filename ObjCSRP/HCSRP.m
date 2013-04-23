@@ -8,7 +8,16 @@
 
 #import "HCSRP.h"
 
+
+static const NSUInteger kSeedSize = 1024 / 8;
+
 @implementation HCSRP
+
++ (void) initialize {
+    NSMutableData * randomness = [NSMutableData dataWithLength: kSeedSize];
+    SecRandomCopyBytes(kSecRandomDefault, [randomness length], [randomness mutableBytes]);
+    srp_random_seed([randomness bytes], [randomness length]);
+}
 
 - (id) init {
     self = [super init];
