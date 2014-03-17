@@ -9,8 +9,8 @@
 #import <XCTest/XCTest.h>
 
 #import "SRP6VerifierGenerator.h"
-#import "SRP6VerifyingServer.h"
-#import "SRP6VerifyingClient.h"
+#import "SRP6Server.h"
+#import "SRP6Client.h"
 #import "NSData+HexString.h"
 #import "BigInteger.h"
 
@@ -41,13 +41,22 @@ static NSString * const B_HEX =
     @"EB4012B7D7665238A8E3FB004B117B58";
 
 
+// Non-RFC reference values generated using @promovicz test
+static NSString * const S_HEX =
+    @"00b0dc82babcf30674ae450c0287745e7990a3381f63b387aaf271a1"
+    @"0d233861e359b48220f7c4693c9ae12b0a6f67809f0876e2d013800d"
+    @"6c41bb59b6d5979b5c00a172b4a2a5903a0bdcaf8a709585eb2afafa"
+    @"8f3499b200210dcc1f10eb33943cd67fc88a2f39a4be5bec4ec0a321"
+    @"2dc346d7e474b29ede8a469ffeca686e5a";
+
+
 @interface SRP6RFC5054Test : XCTestCase
 @end
 
-@interface MockClient : SRP6VerifyingClient
+@interface MockClient : SRP6Client
 @end
 
-@interface MockServer : SRP6VerifyingServer
+@interface MockServer : SRP6Server
 @end
 
 @implementation SRP6RFC5054Test
@@ -73,6 +82,13 @@ static NSString * const B_HEX =
     NSData * B = [server generateCredentialsWithSalt: salt username: username verifier: verifier];
     NSData * BRef = [NSData dataWithHexadecimalString: B_HEX];
     XCTAssert([B isEqualToData: BRef], @"Server credentials must match reference value");
+
+
+    BigInteger * SRef = [BigInteger bigIntegerWithData: [NSData dataWithHexadecimalString: S_HEX]];
+    BigInteger * serverS = [server calculateSecret: A];
+    BigInteger * clientS = [client calculateSecret: B];
+    XCTAssert([clientS isEqualToBigInt: SRef], @"Client secret must match reference value");
+    XCTAssert([serverS isEqualToBigInt: SRef], @"Server secret must match reference value");
 }
 
 @end

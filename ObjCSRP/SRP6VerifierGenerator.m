@@ -33,16 +33,4 @@
     return [NSData dataWithBigInteger: v];
 }
 
-- (BigInteger*) xWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password {
-    NSData * d = [[@[username, password] componentsJoinedByString: @":"] dataUsingEncoding: NSUTF8StringEncoding];
-    [_digest update: d];
-    NSData * ucp_hash = [_digest doFinal];
-
-    NSMutableData * s_hucp_hash = [NSMutableData dataWithData: salt];
-    [s_hucp_hash appendData: ucp_hash];
-
-    [_digest update: s_hucp_hash];
-    return [BigInteger bigIntegerWithData: [_digest doFinal]];
-}
-
 @end

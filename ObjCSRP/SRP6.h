@@ -11,21 +11,6 @@
 #import "SRP6Parameters.h"
 #import "Digest.h"
 
-typedef enum SRP6Hashes {
-    SRP6_SHA1,
-    SRP6_SHA224,
-    SRP6_SHA256,
-    SRP6_SHA384,
-    SRP6_SHA512
-} SRP6Hash;
-
-typedef enum SRP6Ngs {
-    SRP_NG_1024,
-    SRP_NG_2048,
-    SRP_NG_4096,
-    SRP_NG_8192
-} SRP6Ng;
-
 @interface SRP6 : NSObject
 {
     id<SRPDigest> _digest;
@@ -35,6 +20,11 @@ typedef enum SRP6Ngs {
 
 - (id) initWithDigest: (id<SRPDigest>) digest N: (BigInteger*) N g: (BigInteger*) g;
 - (BigInteger*) selectPrivateValue;
+- (BigInteger*) xWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password;
+- (BigInteger*) k;
+- (BigInteger*) uWithA: (BigInteger*) A andB: (BigInteger*) B;
+
+-
 
 + (SRP6Parameters*) CONSTANTS_1024;
 + (SRP6Parameters*) CONSTANTS_2048;

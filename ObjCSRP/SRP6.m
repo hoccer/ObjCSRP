@@ -13,7 +13,7 @@
 #import "BigInteger.h"
 
 static const unsigned kSeedBufferSize   = 64;
-static const unsigned kPrivateValueBits = 256;
+static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 256 bits in length
 
 @implementation SRP6
 
@@ -41,6 +41,31 @@ static const unsigned kPrivateValueBits = 256;
     BN_rand(private.n, kPrivateValueBits, -1, 0);
     return private;
 }
+
+- (BigInteger*) xWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password {
+    NSData * d = [[@[username, password] componentsJoinedByString: @":"] dataUsingEncoding: NSUTF8StringEncoding];
+    [_digest update: d];
+    NSData * ucp_hash = [_digest doFinal];
+
+    NSMutableData * s_hucp_hash = [NSMutableData dataWithData: salt];
+    [s_hucp_hash appendData: ucp_hash];
+
+    [_digest update: s_hucp_hash];
+    return [BigInteger bigIntegerWithData: [_digest doFinal]];
+}
+
+- (BigInteger*) k {
+    [_digest update: [NSData dataWithBigInteger: _N]];
+    [_digest update: [NSData dataWithBigInteger: _g leftPaddedToLength: _N.length]];
+    return [BigInteger bigIntegerWithData: [_digest doFinal]];
+}
+
+- (BigInteger*) uWithA: (BigInteger*) A andB: (BigInteger*) B {
+    [_digest update: [NSData dataWithBigInteger: A leftPaddedToLength: _N.length]];
+    [_digest update: [NSData dataWithBigInteger: B leftPaddedToLength: _N.length]];
+    return [BigInteger bigIntegerWithData: [_digest doFinal]];
+}
+
 
 + (SRP6Parameters*) CONSTANTS_1024 {
     static SRP6Parameters * p = nil;

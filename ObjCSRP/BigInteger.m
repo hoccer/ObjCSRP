@@ -44,6 +44,10 @@
     BN_free(_n);
 }
 
+- (BOOL) isEqualToBigInt: (BigInteger*) other {
+    return BN_cmp(_n, other.n) == 0;
+}
+
 + (BigInteger*) bigInteger {
     return [[BigInteger alloc] init];
 }

@@ -8,8 +8,9 @@
 
 #import "SRP6.h"
 
-@interface SRP6VerifyingClient : SRP6
+@interface SRP6Client : SRP6
 
 - (NSData*) generateCredentialsWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password;
+- (BigInteger*) calculateSecret: (NSData*) serverB;
 
 @end

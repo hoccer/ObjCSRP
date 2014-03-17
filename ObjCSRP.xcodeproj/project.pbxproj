@@ -35,8 +35,8 @@
 		63E112D118D64C590083E0C9 /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112CC18D63DC40083E0C9 /* NSData+HexString.m */; };
 		63E1131218D6565E0083E0C9 /* SRP6.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131118D6565E0083E0C9 /* SRP6.m */; };
 		63E1131518D656780083E0C9 /* SRP6VerifierGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */; };
-		63E1131818D6569C0083E0C9 /* SRP6VerifyingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */; };
-		63E1131B18D656B00083E0C9 /* SRP6VerifyingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */; };
+		63E1131818D6569C0083E0C9 /* SRP6Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131718D6569C0083E0C9 /* SRP6Client.m */; };
+		63E1131B18D656B00083E0C9 /* SRP6Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131A18D656B00083E0C9 /* SRP6Server.m */; };
 		63E1131E18D65D570083E0C9 /* SRP6Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131D18D65D570083E0C9 /* SRP6Parameters.m */; };
 		63E1132118D6638B0083E0C9 /* BigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132018D6638B0083E0C9 /* BigInteger.m */; };
 		63E1132418D6728F0083E0C9 /* Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132318D6728F0083E0C9 /* Digest.m */; };
@@ -119,10 +119,10 @@
 		63E1131118D6565E0083E0C9 /* SRP6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6.m; sourceTree = "<group>"; };
 		63E1131318D656780083E0C9 /* SRP6VerifierGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifierGenerator.h; sourceTree = "<group>"; };
 		63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifierGenerator.m; sourceTree = "<group>"; };
-		63E1131618D6569C0083E0C9 /* SRP6VerifyingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifyingClient.h; sourceTree = "<group>"; };
-		63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifyingClient.m; sourceTree = "<group>"; };
-		63E1131918D656B00083E0C9 /* SRP6VerifyingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifyingServer.h; sourceTree = "<group>"; };
-		63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifyingServer.m; sourceTree = "<group>"; };
+		63E1131618D6569C0083E0C9 /* SRP6Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6Client.h; sourceTree = "<group>"; };
+		63E1131718D6569C0083E0C9 /* SRP6Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6Client.m; sourceTree = "<group>"; };
+		63E1131918D656B00083E0C9 /* SRP6Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6Server.h; sourceTree = "<group>"; };
+		63E1131A18D656B00083E0C9 /* SRP6Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6Server.m; sourceTree = "<group>"; };
 		63E1131C18D65D570083E0C9 /* SRP6Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6Parameters.h; sourceTree = "<group>"; };
 		63E1131D18D65D570083E0C9 /* SRP6Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6Parameters.m; sourceTree = "<group>"; };
 		63E1131F18D6638B0083E0C9 /* BigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigInteger.h; sourceTree = "<group>"; };
@@ -214,10 +214,10 @@
 				63E1131118D6565E0083E0C9 /* SRP6.m */,
 				63E1131318D656780083E0C9 /* SRP6VerifierGenerator.h */,
 				63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */,
-				63E1131618D6569C0083E0C9 /* SRP6VerifyingClient.h */,
-				63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */,
-				63E1131918D656B00083E0C9 /* SRP6VerifyingServer.h */,
-				63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */,
+				63E1131618D6569C0083E0C9 /* SRP6Client.h */,
+				63E1131718D6569C0083E0C9 /* SRP6Client.m */,
+				63E1131918D656B00083E0C9 /* SRP6Server.h */,
+				63E1131A18D656B00083E0C9 /* SRP6Server.m */,
 				63E1131C18D65D570083E0C9 /* SRP6Parameters.h */,
 				63E1131D18D65D570083E0C9 /* SRP6Parameters.m */,
 				63E1131F18D6638B0083E0C9 /* BigInteger.h */,
@@ -437,9 +437,9 @@
 				631F6D22170B934F00FB28D5 /* srp.c in Sources */,
 				63E1132418D6728F0083E0C9 /* Digest.m in Sources */,
 				63E112C418D63C780083E0C9 /* BigNumUtilities.m in Sources */,
-				63E1131818D6569C0083E0C9 /* SRP6VerifyingClient.m in Sources */,
+				63E1131818D6569C0083E0C9 /* SRP6Client.m in Sources */,
 				63E1132118D6638B0083E0C9 /* BigInteger.m in Sources */,
-				63E1131B18D656B00083E0C9 /* SRP6VerifyingServer.m in Sources */,
+				63E1131B18D656B00083E0C9 /* SRP6Server.m in Sources */,
 				63E1131E18D65D570083E0C9 /* SRP6Parameters.m in Sources */,
 				63E1131518D656780083E0C9 /* SRP6VerifierGenerator.m in Sources */,
 				63E112CD18D63DC40083E0C9 /* NSData+HexString.m in Sources */,

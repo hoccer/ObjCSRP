@@ -15,6 +15,8 @@
 
 - (id) initWithString: (NSString*) string radix: (int) radix;
 
+- (BOOL) isEqualToBigInt: (BigInteger*) other;
+
 @property (nonatomic,readonly) BIGNUM * n;
 @property (nonatomic,readonly) NSUInteger length;
 
