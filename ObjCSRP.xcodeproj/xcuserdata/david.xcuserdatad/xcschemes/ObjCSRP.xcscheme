@@ -38,6 +38,16 @@
                ReferencedContainer = "container:ObjCSRP.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63E112AE18D60E260083E0C9"
+               BuildableName = "ObjCSRP Tests.xctest"
+               BlueprintName = "ObjCSRP Tests"
+               ReferencedContainer = "container:ObjCSRP.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

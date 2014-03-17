@@ -10,12 +10,6 @@
 		631F6CF8170B7E8900FB28D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF7170B7E8900FB28D5 /* Foundation.framework */; };
 		631F6CFD170B7E8900FB28D5 /* HCSRP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 631F6CFC170B7E8900FB28D5 /* HCSRP.h */; };
 		631F6CFF170B7E8900FB28D5 /* HCSRP.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6CFE170B7E8900FB28D5 /* HCSRP.m */; };
-		631F6D07170B7E8900FB28D5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D06170B7E8900FB28D5 /* SenTestingKit.framework */; };
-		631F6D09170B7E8900FB28D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D08170B7E8900FB28D5 /* UIKit.framework */; };
-		631F6D0A170B7E8900FB28D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF7170B7E8900FB28D5 /* Foundation.framework */; };
-		631F6D0D170B7E8900FB28D5 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
-		631F6D13170B7E8900FB28D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631F6D11170B7E8900FB28D5 /* InfoPlist.strings */; };
-		631F6D16170B7E8900FB28D5 /* ObjCSRPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D15170B7E8900FB28D5 /* ObjCSRPTests.m */; };
 		631F6D22170B934F00FB28D5 /* srp.c in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D20170B934F00FB28D5 /* srp.c */; };
 		631F6D86170B9F5800FB28D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D08170B7E8900FB28D5 /* UIKit.framework */; };
 		631F6D87170B9F5800FB28D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF7170B7E8900FB28D5 /* Foundation.framework */; };
@@ -30,16 +24,26 @@
 		631F6DA1170B9F5900FB28D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F6DA0170B9F5900FB28D5 /* ViewController.m */; };
 		631F6DA5170BA14D00FB28D5 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
 		631F6DA6170BA15900FB28D5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D28170B940900FB28D5 /* libcrypto.a */; };
+		63E112B118D60E260083E0C9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E112B018D60E260083E0C9 /* XCTest.framework */; };
+		63E112B718D60E260083E0C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63E112B518D60E260083E0C9 /* InfoPlist.strings */; };
+		63E112C118D60E6C0083E0C9 /* SRP6RFC5054Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */; };
+		63E112C418D63C780083E0C9 /* BigNumUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C318D63C780083E0C9 /* BigNumUtilities.m */; };
+		63E112CD18D63DC40083E0C9 /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112CC18D63DC40083E0C9 /* NSData+HexString.m */; };
+		63E112CE18D64BE70083E0C9 /* srp.c in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D20170B934F00FB28D5 /* srp.c */; };
+		63E112CF18D64C1A0083E0C9 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D28170B940900FB28D5 /* libcrypto.a */; };
+		63E112D018D64C550083E0C9 /* BigNumUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C318D63C780083E0C9 /* BigNumUtilities.m */; };
+		63E112D118D64C590083E0C9 /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112CC18D63DC40083E0C9 /* NSData+HexString.m */; };
+		63E1131218D6565E0083E0C9 /* SRP6.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131118D6565E0083E0C9 /* SRP6.m */; };
+		63E1131518D656780083E0C9 /* SRP6VerifierGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */; };
+		63E1131818D6569C0083E0C9 /* SRP6VerifyingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */; };
+		63E1131B18D656B00083E0C9 /* SRP6VerifyingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */; };
+		63E1131E18D65D570083E0C9 /* SRP6Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1131D18D65D570083E0C9 /* SRP6Parameters.m */; };
+		63E1132118D6638B0083E0C9 /* BigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132018D6638B0083E0C9 /* BigInteger.m */; };
+		63E1132418D6728F0083E0C9 /* Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132318D6728F0083E0C9 /* Digest.m */; };
+		63E1132718D6A7550083E0C9 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		631F6D0B170B7E8900FB28D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 631F6CEC170B7E8900FB28D5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 631F6CF3170B7E8900FB28D5;
-			remoteInfo = ObjCSRP;
-		};
 		631F6D27170B940900FB28D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 631F6D23170B940900FB28D5 /* openssl.xcodeproj */;
@@ -53,6 +57,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9069D28B0FCE659A0042E34C;
 			remoteInfo = crypto;
+		};
+		63E112BB18D60E260083E0C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631F6CEC170B7E8900FB28D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 631F6CF3170B7E8900FB28D5;
+			remoteInfo = ObjCSRP;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,13 +86,8 @@
 		631F6CFB170B7E8900FB28D5 /* ObjCSRP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCSRP-Prefix.pch"; sourceTree = "<group>"; };
 		631F6CFC170B7E8900FB28D5 /* HCSRP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCSRP.h; sourceTree = "<group>"; };
 		631F6CFE170B7E8900FB28D5 /* HCSRP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSRP.m; sourceTree = "<group>"; };
-		631F6D05170B7E8900FB28D5 /* ObjCSRPTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCSRPTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		631F6D06170B7E8900FB28D5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		631F6D08170B7E8900FB28D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		631F6D10170B7E8900FB28D5 /* ObjCSRPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCSRPTests-Info.plist"; sourceTree = "<group>"; };
-		631F6D12170B7E8900FB28D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		631F6D14170B7E8900FB28D5 /* ObjCSRPTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCSRPTests.h; sourceTree = "<group>"; };
-		631F6D15170B7E8900FB28D5 /* ObjCSRPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCSRPTests.m; sourceTree = "<group>"; };
 		631F6D20170B934F00FB28D5 /* srp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = srp.c; path = 3rdParty/csrp/srp.c; sourceTree = "<group>"; };
 		631F6D21170B934F00FB28D5 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = srp.h; path = 3rdParty/csrp/srp.h; sourceTree = "<group>"; };
 		631F6D23170B940900FB28D5 /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "3rdParty/openssl-xcode/openssl.xcodeproj"; sourceTree = "<group>"; };
@@ -99,6 +105,30 @@
 		631F6D9D170B9F5900FB28D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		631F6D9F170B9F5900FB28D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		631F6DA0170B9F5900FB28D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		63E112AF18D60E260083E0C9 /* ObjCSRP Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCSRP Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E112B018D60E260083E0C9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		63E112B418D60E260083E0C9 /* ObjCSRP Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCSRP Tests-Info.plist"; sourceTree = "<group>"; };
+		63E112B618D60E260083E0C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63E112BA18D60E260083E0C9 /* ObjCSRP Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCSRP Tests-Prefix.pch"; sourceTree = "<group>"; };
+		63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6RFC5054Test.m; sourceTree = "<group>"; };
+		63E112C218D63C780083E0C9 /* BigNumUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigNumUtilities.h; sourceTree = "<group>"; };
+		63E112C318D63C780083E0C9 /* BigNumUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigNumUtilities.m; sourceTree = "<group>"; };
+		63E112CB18D63DC40083E0C9 /* NSData+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
+		63E112CC18D63DC40083E0C9 /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
+		63E1131018D6565E0083E0C9 /* SRP6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6.h; sourceTree = "<group>"; };
+		63E1131118D6565E0083E0C9 /* SRP6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6.m; sourceTree = "<group>"; };
+		63E1131318D656780083E0C9 /* SRP6VerifierGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifierGenerator.h; sourceTree = "<group>"; };
+		63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifierGenerator.m; sourceTree = "<group>"; };
+		63E1131618D6569C0083E0C9 /* SRP6VerifyingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifyingClient.h; sourceTree = "<group>"; };
+		63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifyingClient.m; sourceTree = "<group>"; };
+		63E1131918D656B00083E0C9 /* SRP6VerifyingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6VerifyingServer.h; sourceTree = "<group>"; };
+		63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6VerifyingServer.m; sourceTree = "<group>"; };
+		63E1131C18D65D570083E0C9 /* SRP6Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRP6Parameters.h; sourceTree = "<group>"; };
+		63E1131D18D65D570083E0C9 /* SRP6Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6Parameters.m; sourceTree = "<group>"; };
+		63E1131F18D6638B0083E0C9 /* BigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigInteger.h; sourceTree = "<group>"; };
+		63E1132018D6638B0083E0C9 /* BigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigInteger.m; sourceTree = "<group>"; };
+		63E1132218D6728F0083E0C9 /* Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Digest.h; sourceTree = "<group>"; };
+		63E1132318D6728F0083E0C9 /* Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Digest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				631F6CF8170B7E8900FB28D5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		631F6D01170B7E8900FB28D5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				631F6D07170B7E8900FB28D5 /* SenTestingKit.framework in Frameworks */,
-				631F6D09170B7E8900FB28D5 /* UIKit.framework in Frameworks */,
-				631F6D0A170B7E8900FB28D5 /* Foundation.framework in Frameworks */,
-				631F6D0D170B7E8900FB28D5 /* libObjCSRP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +152,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63E112AC18D60E260083E0C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63E1132718D6A7550083E0C9 /* libObjCSRP.a in Frameworks */,
+				63E112CF18D64C1A0083E0C9 /* libcrypto.a in Frameworks */,
+				63E112B118D60E260083E0C9 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,8 +171,8 @@
 				631F6D23170B940900FB28D5 /* openssl.xcodeproj */,
 				631F6D1F170B933E00FB28D5 /* CSRP */,
 				631F6CF9170B7E8900FB28D5 /* ObjCSRP */,
-				631F6D0E170B7E8900FB28D5 /* ObjCSRPTests */,
 				631F6D8A170B9F5800FB28D5 /* SRPDemo */,
+				63E112B218D60E260083E0C9 /* ObjCSRP Tests */,
 				631F6CF6170B7E8900FB28D5 /* Frameworks */,
 				631F6CF5170B7E8900FB28D5 /* Products */,
 			);
@@ -153,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */,
-				631F6D05170B7E8900FB28D5 /* ObjCSRPTests.octest */,
 				631F6D85170B9F5800FB28D5 /* SRPDemo.app */,
+				63E112AF18D60E260083E0C9 /* ObjCSRP Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +195,7 @@
 				631F6D06170B7E8900FB28D5 /* SenTestingKit.framework */,
 				631F6D08170B7E8900FB28D5 /* UIKit.framework */,
 				631F6D88170B9F5800FB28D5 /* CoreGraphics.framework */,
+				63E112B018D60E260083E0C9 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,9 +203,27 @@
 		631F6CF9170B7E8900FB28D5 /* ObjCSRP */ = {
 			isa = PBXGroup;
 			children = (
+				63E112CB18D63DC40083E0C9 /* NSData+HexString.h */,
+				63E112CC18D63DC40083E0C9 /* NSData+HexString.m */,
+				63E112C218D63C780083E0C9 /* BigNumUtilities.h */,
+				63E112C318D63C780083E0C9 /* BigNumUtilities.m */,
 				631F6CFC170B7E8900FB28D5 /* HCSRP.h */,
 				631F6CFE170B7E8900FB28D5 /* HCSRP.m */,
 				631F6CFA170B7E8900FB28D5 /* Supporting Files */,
+				63E1131018D6565E0083E0C9 /* SRP6.h */,
+				63E1131118D6565E0083E0C9 /* SRP6.m */,
+				63E1131318D656780083E0C9 /* SRP6VerifierGenerator.h */,
+				63E1131418D656780083E0C9 /* SRP6VerifierGenerator.m */,
+				63E1131618D6569C0083E0C9 /* SRP6VerifyingClient.h */,
+				63E1131718D6569C0083E0C9 /* SRP6VerifyingClient.m */,
+				63E1131918D656B00083E0C9 /* SRP6VerifyingServer.h */,
+				63E1131A18D656B00083E0C9 /* SRP6VerifyingServer.m */,
+				63E1131C18D65D570083E0C9 /* SRP6Parameters.h */,
+				63E1131D18D65D570083E0C9 /* SRP6Parameters.m */,
+				63E1131F18D6638B0083E0C9 /* BigInteger.h */,
+				63E1132018D6638B0083E0C9 /* BigInteger.m */,
+				63E1132218D6728F0083E0C9 /* Digest.h */,
+				63E1132318D6728F0083E0C9 /* Digest.m */,
 			);
 			path = ObjCSRP;
 			sourceTree = "<group>";
@@ -184,25 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				631F6CFB170B7E8900FB28D5 /* ObjCSRP-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		631F6D0E170B7E8900FB28D5 /* ObjCSRPTests */ = {
-			isa = PBXGroup;
-			children = (
-				631F6D14170B7E8900FB28D5 /* ObjCSRPTests.h */,
-				631F6D15170B7E8900FB28D5 /* ObjCSRPTests.m */,
-				631F6D0F170B7E8900FB28D5 /* Supporting Files */,
-			);
-			path = ObjCSRPTests;
-			sourceTree = "<group>";
-		};
-		631F6D0F170B7E8900FB28D5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				631F6D10170B7E8900FB28D5 /* ObjCSRPTests-Info.plist */,
-				631F6D11170B7E8900FB28D5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -251,6 +280,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		63E112B218D60E260083E0C9 /* ObjCSRP Tests */ = {
+			isa = PBXGroup;
+			children = (
+				63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */,
+				63E112B318D60E260083E0C9 /* Supporting Files */,
+			);
+			path = "ObjCSRP Tests";
+			sourceTree = "<group>";
+		};
+		63E112B318D60E260083E0C9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63E112B418D60E260083E0C9 /* ObjCSRP Tests-Info.plist */,
+				63E112B518D60E260083E0C9 /* InfoPlist.strings */,
+				63E112BA18D60E260083E0C9 /* ObjCSRP Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,25 +320,6 @@
 			productReference = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		631F6D04170B7E8900FB28D5 /* ObjCSRPTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 631F6D1C170B7E8900FB28D5 /* Build configuration list for PBXNativeTarget "ObjCSRPTests" */;
-			buildPhases = (
-				631F6D00170B7E8900FB28D5 /* Sources */,
-				631F6D01170B7E8900FB28D5 /* Frameworks */,
-				631F6D02170B7E8900FB28D5 /* Resources */,
-				631F6D03170B7E8900FB28D5 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				631F6D0C170B7E8900FB28D5 /* PBXTargetDependency */,
-			);
-			name = ObjCSRPTests;
-			productName = ObjCSRPTests;
-			productReference = 631F6D05170B7E8900FB28D5 /* ObjCSRPTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		631F6D84170B9F5800FB28D5 /* SRPDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 631F6DA4170B9F5900FB28D5 /* Build configuration list for PBXNativeTarget "SRPDemo" */;
@@ -308,6 +337,24 @@
 			productReference = 631F6D85170B9F5800FB28D5 /* SRPDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		63E112AE18D60E260083E0C9 /* ObjCSRP Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63E112BD18D60E260083E0C9 /* Build configuration list for PBXNativeTarget "ObjCSRP Tests" */;
+			buildPhases = (
+				63E112AB18D60E260083E0C9 /* Sources */,
+				63E112AC18D60E260083E0C9 /* Frameworks */,
+				63E112AD18D60E260083E0C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63E112BC18D60E260083E0C9 /* PBXTargetDependency */,
+			);
+			name = "ObjCSRP Tests";
+			productName = "ObjCSRP Tests";
+			productReference = 63E112AF18D60E260083E0C9 /* ObjCSRP Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,6 +363,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Hoccer GmbH";
+				TargetAttributes = {
+					63E112AE18D60E260083E0C9 = {
+						TestTargetID = 631F6CF3170B7E8900FB28D5;
+					};
+				};
 			};
 			buildConfigurationList = 631F6CEF170B7E8900FB28D5 /* Build configuration list for PBXProject "ObjCSRP" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -336,8 +388,8 @@
 			projectRoot = "";
 			targets = (
 				631F6CF3170B7E8900FB28D5 /* ObjCSRP */,
-				631F6D04170B7E8900FB28D5 /* ObjCSRPTests */,
 				631F6D84170B9F5800FB28D5 /* SRPDemo */,
+				63E112AE18D60E260083E0C9 /* ObjCSRP Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -353,14 +405,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		631F6D02170B7E8900FB28D5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				631F6D13170B7E8900FB28D5 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		631F6D83170B9F5800FB28D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,39 +417,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		631F6D03170B7E8900FB28D5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+		63E112AD18D60E260083E0C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				63E112B718D60E260083E0C9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-/* End PBXShellScriptBuildPhase section */
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		631F6CF0170B7E8900FB28D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E1131218D6565E0083E0C9 /* SRP6.m in Sources */,
 				631F6CFF170B7E8900FB28D5 /* HCSRP.m in Sources */,
 				631F6D22170B934F00FB28D5 /* srp.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		631F6D00170B7E8900FB28D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				631F6D16170B7E8900FB28D5 /* ObjCSRPTests.m in Sources */,
+				63E1132418D6728F0083E0C9 /* Digest.m in Sources */,
+				63E112C418D63C780083E0C9 /* BigNumUtilities.m in Sources */,
+				63E1131818D6569C0083E0C9 /* SRP6VerifyingClient.m in Sources */,
+				63E1132118D6638B0083E0C9 /* BigInteger.m in Sources */,
+				63E1131B18D656B00083E0C9 /* SRP6VerifyingServer.m in Sources */,
+				63E1131E18D65D570083E0C9 /* SRP6Parameters.m in Sources */,
+				63E1131518D656780083E0C9 /* SRP6VerifierGenerator.m in Sources */,
+				63E112CD18D63DC40083E0C9 /* NSData+HexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,30 +456,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63E112AB18D60E260083E0C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63E112C118D60E6C0083E0C9 /* SRP6RFC5054Test.m in Sources */,
+				63E112CE18D64BE70083E0C9 /* srp.c in Sources */,
+				63E112D018D64C550083E0C9 /* BigNumUtilities.m in Sources */,
+				63E112D118D64C590083E0C9 /* NSData+HexString.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		631F6D0C170B7E8900FB28D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 631F6CF3170B7E8900FB28D5 /* ObjCSRP */;
-			targetProxy = 631F6D0B170B7E8900FB28D5 /* PBXContainerItemProxy */;
-		};
 		631F6D2A170B951600FB28D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = crypto;
 			targetProxy = 631F6D29170B951600FB28D5 /* PBXContainerItemProxy */;
 		};
+		63E112BC18D60E260083E0C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 631F6CF3170B7E8900FB28D5 /* ObjCSRP */;
+			targetProxy = 63E112BB18D60E260083E0C9 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		631F6D11170B7E8900FB28D5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				631F6D12170B7E8900FB28D5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		631F6D8D170B9F5800FB28D5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,6 +497,14 @@
 				631F6D9D170B9F5900FB28D5 /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		63E112B518D60E260083E0C9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63E112B618D60E260083E0C9 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -489,6 +537,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 			};
 			name = Debug;
 		};
@@ -512,6 +561,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -542,36 +592,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Release;
-		};
-		631F6D1D170B7E8900FB28D5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjCSRP/ObjCSRP-Prefix.pch";
-				INFOPLIST_FILE = "ObjCSRPTests/ObjCSRPTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		631F6D1E170B7E8900FB28D5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjCSRP/ObjCSRP-Prefix.pch";
-				INFOPLIST_FILE = "ObjCSRPTests/ObjCSRPTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -608,6 +628,66 @@
 			};
 			name = Release;
 		};
+		63E112BE18D60E260083E0C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCSRP Tests/ObjCSRP Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ObjCSRP Tests/ObjCSRP Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		63E112BF18D60E260083E0C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCSRP Tests/ObjCSRP Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "ObjCSRP Tests/ObjCSRP Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -629,15 +709,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		631F6D1C170B7E8900FB28D5 /* Build configuration list for PBXNativeTarget "ObjCSRPTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				631F6D1D170B7E8900FB28D5 /* Debug */,
-				631F6D1E170B7E8900FB28D5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		631F6DA4170B9F5900FB28D5 /* Build configuration list for PBXNativeTarget "SRPDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -646,6 +717,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		63E112BD18D60E260083E0C9 /* Build configuration list for PBXNativeTarget "ObjCSRP Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E112BE18D60E260083E0C9 /* Debug */,
+				63E112BF18D60E260083E0C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
