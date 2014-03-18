@@ -48,7 +48,10 @@ static NSString * const S_HEX =
     @"6c41bb59b6d5979b5c00a172b4a2a5903a0bdcaf8a709585eb2afafa"
     @"8f3499b200210dcc1f10eb33943cd67fc88a2f39a4be5bec4ec0a321"
     @"2dc346d7e474b29ede8a469ffeca686e5a";
-
+static NSString * const M1_HEX =
+    @"3f3bc67169ea71302599cf1b0f5d408b7b65d347";
+static NSString * const M2_HEX =
+    @"9cab3c575a11de37d3ac1421a9f009236a48eb55";
 
 @interface SRP6RFC5054Test : XCTestCase
 @end
@@ -83,12 +86,19 @@ static NSString * const S_HEX =
     NSData * BRef = [NSData dataWithHexadecimalString: B_HEX];
     XCTAssert([B isEqualToData: BRef], @"Server credentials must match reference value");
 
-
     BigInteger * SRef = [BigInteger bigIntegerWithData: [NSData dataWithHexadecimalString: S_HEX]];
     BigInteger * serverS = [server calculateSecret: A];
     BigInteger * clientS = [client calculateSecret: B];
     XCTAssert([clientS isEqualToBigInt: SRef], @"Client secret must match reference value");
     XCTAssert([serverS isEqualToBigInt: SRef], @"Server secret must match reference value");
+
+    NSData * M1 = [client calculateVerifier];
+    NSData * M1Ref = [NSData dataWithHexadecimalString: M1_HEX];
+    XCTAssert([M1 isEqualToData: M1Ref], @"Client M1 must match reference value");
+
+    NSData * M2 = [server verifyClient: M1];
+    NSData * M2Ref = [NSData dataWithHexadecimalString: M2_HEX];
+    XCTAssert([M2 isEqualToData: M2Ref], @"Server M2 must match reference value");
 }
 
 @end

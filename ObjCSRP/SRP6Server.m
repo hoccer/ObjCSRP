@@ -13,7 +13,6 @@
 @interface SRP6Server ()
 {
     BigInteger * _b;
-    BigInteger * _B;
     BigInteger * _v;
 }
 @end
@@ -21,6 +20,8 @@
 @implementation SRP6Server
 
 - (NSData*) generateCredentialsWithSalt: (NSData*) salt username: (NSString*) username verifier: (NSData*) verifier {
+    _username = username;
+    _salt = salt;
     _b = [self selectPrivateValue];
 
     BigInteger * k = [self k];
@@ -38,16 +39,27 @@
 
 - (BigInteger*) calculateSecret: (NSData*) clientA {
     BigIntCtx * ctx = [BigIntCtx bigIntCtx];
-    BigInteger * A = [BigInteger bigIntegerWithData: clientA];
-    BigInteger * u = [self uWithA: A andB: _B];
+    _A = [BigInteger bigIntegerWithData: clientA];
+    BigInteger * u = [self uWithA: _A andB: _B];
     BigInteger * tmp1 = [BigInteger bigInteger];
     BigInteger * tmp2 = [BigInteger bigInteger];
     BigInteger * S = [BigInteger bigInteger];
 
     BN_mod_exp(tmp1.n, _v.n, u.n, _N.n, ctx.c);
-    BN_mod_mul(tmp2.n, A.n, tmp1.n, _N.n, ctx.c);
+    BN_mod_mul(tmp2.n, _A.n, tmp1.n, _N.n, ctx.c);
     BN_mod_exp(S.n, tmp2.n, _b.n, _N.n, ctx.c);
+
+    _K = [self hashNumber: S];
+
     return S;
+}
+
+- (NSData*) verifyClient: (NSData*) clientM1 {
+    NSData * M1 = [self calculateM1];
+    if ([M1 isEqualToData: clientM1]) {
+        return [self calculateM2: M1];
+    }
+    return nil;
 }
 
 @end

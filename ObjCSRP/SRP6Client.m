@@ -12,9 +12,6 @@
 @interface SRP6Client ()
 {
     BigInteger * _a;
-    BigInteger * _A;
-    NSData     * _salt;
-    NSString   * _username;
     NSString   * _password;
 }
 @end
@@ -34,10 +31,10 @@
 }
 
 - (BigInteger*) calculateSecret:(NSData *)serverB {
-    BigInteger * B = [BigInteger bigIntegerWithData:serverB];
+    _B = [BigInteger bigIntegerWithData:serverB];
     BigInteger * x = [self xWithSalt: _salt username: _username password: _password];
     BigInteger * k = [self k];
-    BigInteger * u = [self uWithA: _A andB: B];
+    BigInteger * u = [self uWithA: _A andB: _B];
 
     BigIntCtx * ctx   = [BigIntCtx bigIntCtx];
     BigInteger * tmp1 = [BigInteger bigInteger];
@@ -49,9 +46,16 @@
     BN_add(tmp2.n, _a.n, tmp1.n);
     BN_mod_exp(tmp1.n, _g.n, x.n, _N.n, ctx.c);
     BN_mod_mul(tmp3.n, k.n, tmp1.n, _N.n, ctx.c);
-    BN_mod_sub(tmp1.n, B.n, tmp3.n, _N.n, ctx.c);
+    BN_mod_sub(tmp1.n, _B.n, tmp3.n, _N.n, ctx.c);
     BN_mod_exp(S.n, tmp1.n, tmp2.n, _N.n, ctx.c);
+
+    _K = [self hashNumber: S];
+
     return S;
+}
+
+- (NSData*) calculateVerifier {
+    return [self calculateM1];
 }
 
 @end

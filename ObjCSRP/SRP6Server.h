@@ -12,5 +12,6 @@
 
 - (NSData*) generateCredentialsWithSalt: (NSData*) salt username: (NSString*) username verifier: (NSData*) verifier;
 - (BigInteger*) calculateSecret: (NSData*) clientA;
+- (NSData*) verifyClient: (NSData*) clientM1;
 
 @end

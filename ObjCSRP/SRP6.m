@@ -66,6 +66,55 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
     return [BigInteger bigIntegerWithData: [_digest doFinal]];
 }
 
+- (NSData*) hashNumber: (BigInteger*) number {
+    [_digest update: [NSData dataWithBigInteger: number]];
+    return [_digest doFinal];
+}
+
+- (NSData*) hashData: (NSData*) data {
+    [_digest update: data];
+    return [_digest doFinal];
+}
+
+- (NSData*) calculateHashNg {
+    NSData * HN = [self hashNumber: _N];
+    NSData * Hg = [self hashNumber: _g];
+    NSMutableData * result = [NSMutableData dataWithLength: _digest.length];
+    const unsigned char * bytesHN = HN.bytes;
+    const unsigned char * bytesHg = Hg.bytes;
+    unsigned char * out = result.mutableBytes;
+    for (unsigned i = 0; i < result.length; ++i) {
+        out[i] = bytesHN[i] ^ bytesHg[i];
+    }
+    return result;
+}
+
+- (NSData*) calculateM1 {
+    NSData * HNg = [self calculateHashNg];
+    NSData * HI  = [self hashData: [_username dataUsingEncoding: NSUTF8StringEncoding]];
+
+    NSData * bytesA = [NSData dataWithBigInteger: _A];
+    NSData * bytesB = [NSData dataWithBigInteger: _B];
+
+    [_digest update: HNg];
+    [_digest update: HI];
+    [_digest update: _salt];
+    [_digest update: bytesA];
+    [_digest update: bytesB];
+    [_digest update: _K];
+
+    return [_digest doFinal];
+}
+
+- (NSData*) calculateM2: (NSData*) M1 {
+    NSData * bytesA = [NSData dataWithBigInteger: _A];
+
+    [_digest update: bytesA];
+    [_digest update: M1];
+    [_digest update: _K];
+
+    return [_digest doFinal];
+}
 
 + (SRP6Parameters*) CONSTANTS_1024 {
     static SRP6Parameters * p = nil;
