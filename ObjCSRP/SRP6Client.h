@@ -13,6 +13,6 @@
 - (NSData*) generateCredentialsWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password;
 - (NSData*) calculateSecret: (NSData*) serverB;
 - (NSData*) calculateVerifier;
-- (BOOL) verifyServer: (NSData*) serverM2;
+- (void) verifyServer: (NSData*) serverM2;
 
 @end

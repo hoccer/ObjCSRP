@@ -24,10 +24,7 @@
     _username = username;
     _password = password;
     _a = [self selectPrivateValue];
-
-    BigIntCtx * ctx = [BigIntCtx bigIntCtx];
-    _A = [BigInteger bigInteger];
-    BN_mod_exp(_A.n, _g.n, _a.n, _N.n, ctx.c);
+    _A = [_g power: _a modulo: _N];
     return [NSData dataWithBigInteger: _A];
 }
 
@@ -37,18 +34,8 @@
     BigInteger * k = [self k];
     BigInteger * u = [self uWithA: _A andB: _B];
 
-    BigIntCtx * ctx   = [BigIntCtx bigIntCtx];
-    BigInteger * tmp1 = [BigInteger bigInteger];
-    BigInteger * tmp2 = [BigInteger bigInteger];
-    BigInteger * tmp3 = [BigInteger bigInteger];
-    BigInteger * S    = [BigInteger bigInteger];
-
-    BN_mul(tmp1.n, u.n, x.n, ctx.c);
-    BN_add(tmp2.n, _a.n, tmp1.n);
-    BN_mod_exp(tmp1.n, _g.n, x.n, _N.n, ctx.c);
-    BN_mod_mul(tmp3.n, k.n, tmp1.n, _N.n, ctx.c);
-    BN_mod_sub(tmp1.n, _B.n, tmp3.n, _N.n, ctx.c);
-    BN_mod_exp(S.n, tmp1.n, tmp2.n, _N.n, ctx.c);
+    BigInteger * tmp = [_B subtract: [k multiply: [_g power: x modulo: _N] modulo: _N] modulo: _N];
+    BigInteger * S   = [tmp power: [[u multiply: x] add: _a] modulo: _N];
 
     _K = [self hashNumber: S];
 
@@ -60,9 +47,11 @@
     return _M1;
 }
 
-- (BOOL) verifyServer: (NSData*) serverM2 {
+- (void) verifyServer: (NSData*) serverM2 {
     NSData * M2 = [self calculateM2: _M1];
-    return [M2 isEqualToData: serverM2];
+    if (! [M2 isEqualToData: serverM2]) {
+        @throw [SRP6Exception exceptionWithName: @"ServerVerificationError" reason: @"Server verifier M2 is bogus" userInfo: nil];
+    }
 }
 
 @end

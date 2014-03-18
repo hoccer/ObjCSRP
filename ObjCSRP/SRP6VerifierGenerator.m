@@ -17,9 +17,7 @@
 
 - (NSData*) generateVerifierWithSalt: (NSData*) salt username: (NSString*) username password: (NSString*) password {
     BigInteger * x = [self xWithSalt: salt username: username password: password];
-    BigInteger * v = [BigInteger bigInteger];
-    BigIntCtx  * ctx = [BigIntCtx bigIntCtx];
-    BN_mod_exp(v.n, _g.n, x.n, _N.n, ctx.c);
+    BigInteger * v = [_g power: x modulo: _N];
     return [NSData dataWithBigInteger: v];
 }
 

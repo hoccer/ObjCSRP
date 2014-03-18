@@ -26,6 +26,17 @@
 + (BigInteger*) bigIntegerWithData: (NSData*) data;
 + (BigInteger*) bigIntegerWithValue: (NSInteger) value;
 
+- (BigInteger*) multiply: (BigInteger*) f;
+- (BigInteger*) add: (BigInteger*) b;
+- (BigInteger*) mod: (BigInteger*) m;
+
+- (BigInteger*) multiply: (BigInteger*) f modulo: (BigInteger*) m;
+- (BigInteger*) power: (BigInteger*) y modulo: (BigInteger*) m;
+- (BigInteger*) add: (BigInteger*) b modulo: (BigInteger*) m;
+- (BigInteger*) subtract: (BigInteger*) b modulo: (BigInteger*) m;
+
+- (BOOL) isZero;
+
 @end
 
 @interface BigIntCtx : NSObject

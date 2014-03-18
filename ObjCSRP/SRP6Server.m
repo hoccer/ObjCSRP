@@ -25,29 +25,19 @@
     _b = [self selectPrivateValue];
 
     BigInteger * k = [self k];
-
-    BigIntCtx * ctx = [BigIntCtx bigIntCtx];
     _v = [BigInteger bigIntegerWithData: verifier];
-    BigInteger * tmp1 = [BigInteger bigInteger];
-    BigInteger * tmp2 = [BigInteger bigInteger];
-    BN_mod_mul(tmp1.n, k.n, _v.n, _N.n, ctx.c);
-    BN_mod_exp(tmp2.n, _g.n, _b.n, _N.n, ctx.c);
-    _B = [BigInteger bigInteger];
-    BN_mod_add(_B.n, tmp1.n, tmp2.n, _N.n, ctx.c);
+
+    BigInteger * tmp1 = [k multiply: _v modulo: _N];
+    BigInteger * tmp2 = [_g power: _b modulo: _N];
+    _B = [tmp1 add: tmp2 modulo: _N];
     return [NSData dataWithBigInteger: _B];
 }
 
 - (NSData*) calculateSecret: (NSData*) clientA {
-    BigIntCtx * ctx = [BigIntCtx bigIntCtx];
     _A = [self validatePublicValue: [BigInteger bigIntegerWithData: clientA]];
     BigInteger * u = [self uWithA: _A andB: _B];
-    BigInteger * tmp1 = [BigInteger bigInteger];
-    BigInteger * tmp2 = [BigInteger bigInteger];
-    BigInteger * S = [BigInteger bigInteger];
-
-    BN_mod_exp(tmp1.n, _v.n, u.n, _N.n, ctx.c);
-    BN_mod_mul(tmp2.n, _A.n, tmp1.n, _N.n, ctx.c);
-    BN_mod_exp(S.n, tmp2.n, _b.n, _N.n, ctx.c);
+    BigInteger * tmp = [_A multiply: [_v power: u modulo: _N] modulo: _N];
+    BigInteger * S = [tmp power: _b modulo: _N];
 
     _K = [self hashNumber: S];
 
@@ -59,7 +49,7 @@
     if ([M1 isEqualToData: clientM1]) {
         return [self calculateM2: M1];
     }
-    return nil;
+    @throw [SRP6Exception exceptionWithName: @"ClientVerificationError" reason: @"Client verifier M1 is bogus" userInfo: nil];
 }
 
 @end

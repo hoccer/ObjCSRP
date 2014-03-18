@@ -10,7 +10,15 @@
 
 #import "BigNumUtilities.h"
 
+#import "openssl/bn.h"
+
+static BN_CTX * ctx;
+
 @implementation BigInteger
+
++ (void) initialize {
+    ctx = BN_CTX_new();
+}
 
 - (id) init {
     self = [super init];
@@ -71,6 +79,56 @@
     BN_set_word(n.n, value);
     return n;
 }
+
+#pragma mark - Artihmetic Operations
+
+- (BigInteger*) multiply: (BigInteger*) f {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_mul(result.n, self.n, f.n, ctx);
+    return result;
+}
+
+- (BigInteger*) add: (BigInteger*) b {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_add(result.n, self.n, b.n);
+    return result;
+}
+
+- (BigInteger*) mod: (BigInteger*) m {
+    BigInteger * remainder = [BigInteger bigInteger];
+    BN_mod(remainder.n, self.n, m.n, ctx);
+    return remainder;
+}
+
+- (BigInteger*) multiply: (BigInteger*) f modulo: (BigInteger*) m {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_mod_mul(result.n, self.n, f.n, m.n, ctx);
+    return result;
+}
+
+- (BigInteger*) power: (BigInteger*) y modulo: (BigInteger*) m {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_mod_exp(result.n, self.n, y.n, m.n, ctx);
+    return result;
+}
+
+- (BigInteger*) add: (BigInteger*) b modulo: (BigInteger*) m {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_mod_add(result.n, self.n, b.n, m.n, ctx);
+    return result;
+}
+
+- (BigInteger*) subtract: (BigInteger*) b modulo: (BigInteger*) m {
+    BigInteger * result = [BigInteger bigInteger];
+    BN_mod_sub(result.n, self.n, b.n, m.n, ctx);
+    return result;
+}
+
+
+- (BOOL) isZero  {
+    return BN_is_zero(self.n);
+}
+
 
 @end
 

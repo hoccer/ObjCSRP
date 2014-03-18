@@ -86,7 +86,7 @@ NSString * const password = @"password123";
 
     NSData * M2 = [server verifyClient: M1];
 
-    XCTAssert([client verifyServer: M2], @"Server verification failed");
+    [client verifyServer: M2];
 }
 
 @end
