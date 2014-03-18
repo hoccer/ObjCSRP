@@ -42,33 +42,46 @@ static NSString * const B_HEX =
 
 
 // Non-RFC reference values generated using @promovicz test
+// ... but with leading zeros removed [DS]
 static NSString * const S_HEX =
-    @"00b0dc82babcf30674ae450c0287745e7990a3381f63b387aaf271a1"
-    @"0d233861e359b48220f7c4693c9ae12b0a6f67809f0876e2d013800d"
-    @"6c41bb59b6d5979b5c00a172b4a2a5903a0bdcaf8a709585eb2afafa"
-    @"8f3499b200210dcc1f10eb33943cd67fc88a2f39a4be5bec4ec0a321"
-    @"2dc346d7e474b29ede8a469ffeca686e5a";
+    @"b0dc82babcf30674ae450c0287745e7990a3381f63b387aaf271a10d"
+    @"233861e359b48220f7c4693c9ae12b0a6f67809f0876e2d013800d6c"
+    @"41bb59b6d5979b5c00a172b4a2a5903a0bdcaf8a709585eb2afafa8f"
+    @"3499b200210dcc1f10eb33943cd67fc88a2f39a4be5bec4ec0a3212d"
+    @"c346d7e474b29ede8a469ffeca686e5a";
 static NSString * const M1_HEX =
     @"3f3bc67169ea71302599cf1b0f5d408b7b65d347";
 static NSString * const M2_HEX =
     @"9cab3c575a11de37d3ac1421a9f009236a48eb55";
 
-@interface SRP6RFC5054Test : XCTestCase
+@interface RFC5054Test : XCTestCase
 @end
 
 @interface MockClient : SRP6Client
 @end
 
+@implementation MockClient
+- (BigInteger*) selectPrivateValue {
+    return [BigInteger bigIntegerWithString: a_HEX radix: 16];
+}
+@end
+
 @interface MockServer : SRP6Server
 @end
 
-@implementation SRP6RFC5054Test
+@implementation MockServer
+- (BigInteger*) selectPrivateValue {
+    return [BigInteger bigIntegerWithString: b_HEX radix: 16];
+}
+@end
+
+@implementation RFC5054Test
 
 - (void)testVector {
-    NSData * salt = [NSData dataWithHexadecimalString: salt_HEX];
-
     DigestSHA1 * digest = [DigestSHA1 digest];
     SRP6Parameters * params = SRP6.CONSTANTS_1024;
+
+    NSData * salt = [NSData dataWithHexadecimalString: salt_HEX];
 
     SRP6VerifierGenerator * verifierGenerator = [[SRP6VerifierGenerator alloc] initWithDigest: digest N: params.N g: params.g];
     NSData * verifier = [verifierGenerator generateVerifierWithSalt: salt username: username password: password];
@@ -86,11 +99,11 @@ static NSString * const M2_HEX =
     NSData * BRef = [NSData dataWithHexadecimalString: B_HEX];
     XCTAssert([B isEqualToData: BRef], @"Server credentials must match reference value");
 
-    BigInteger * SRef = [BigInteger bigIntegerWithData: [NSData dataWithHexadecimalString: S_HEX]];
-    BigInteger * serverS = [server calculateSecret: A];
-    BigInteger * clientS = [client calculateSecret: B];
-    XCTAssert([clientS isEqualToBigInt: SRef], @"Client secret must match reference value");
-    XCTAssert([serverS isEqualToBigInt: SRef], @"Server secret must match reference value");
+    NSData * SRef = [NSData dataWithHexadecimalString: S_HEX];
+    NSData * serverS = [server calculateSecret: A];
+    NSData * clientS = [client calculateSecret: B];
+    XCTAssert([clientS isEqualToData: SRef], @"Client secret must match reference value");
+    XCTAssert([serverS isEqualToData: SRef], @"Server secret must match reference value");
 
     NSData * M1 = [client calculateVerifier];
     NSData * M1Ref = [NSData dataWithHexadecimalString: M1_HEX];
@@ -101,16 +114,4 @@ static NSString * const M2_HEX =
     XCTAssert([M2 isEqualToData: M2Ref], @"Server M2 must match reference value");
 }
 
-@end
-
-@implementation MockClient
-- (BigInteger*) selectPrivateValue {
-    return [BigInteger bigIntegerWithString: a_HEX radix: 16];
-}
-@end
-
-@implementation MockServer
-- (BigInteger*) selectPrivateValue {
-    return [BigInteger bigIntegerWithString: b_HEX radix: 16];
-}
 @end

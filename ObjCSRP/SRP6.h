@@ -30,6 +30,8 @@
 
 - (id) initWithDigest: (id<SRPDigest>) digest N: (BigInteger*) N g: (BigInteger*) g;
 
++ (NSData*) saltForDigest: (id<SRPDigest>) digest;
+
 + (SRP6Parameters*) CONSTANTS_1024;
 + (SRP6Parameters*) CONSTANTS_2048;
 + (SRP6Parameters*) CONSTANTS_4096;

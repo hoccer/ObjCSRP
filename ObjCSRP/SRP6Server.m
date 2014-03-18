@@ -37,7 +37,7 @@
     return [NSData dataWithBigInteger: _B];
 }
 
-- (BigInteger*) calculateSecret: (NSData*) clientA {
+- (NSData*) calculateSecret: (NSData*) clientA {
     BigIntCtx * ctx = [BigIntCtx bigIntCtx];
     _A = [BigInteger bigIntegerWithData: clientA];
     BigInteger * u = [self uWithA: _A andB: _B];
@@ -51,7 +51,7 @@
 
     _K = [self hashNumber: S];
 
-    return S;
+    return [NSData dataWithBigInteger: S];
 }
 
 - (NSData*) verifyClient: (NSData*) clientM1 {

@@ -13,6 +13,7 @@
 {
     BigInteger * _a;
     NSString   * _password;
+    NSData     * _M1;
 }
 @end
 
@@ -30,7 +31,7 @@
     return [NSData dataWithBigInteger: _A];
 }
 
-- (BigInteger*) calculateSecret:(NSData *)serverB {
+- (NSData*) calculateSecret:(NSData *)serverB {
     _B = [BigInteger bigIntegerWithData:serverB];
     BigInteger * x = [self xWithSalt: _salt username: _username password: _password];
     BigInteger * k = [self k];
@@ -51,11 +52,17 @@
 
     _K = [self hashNumber: S];
 
-    return S;
+    return [NSData dataWithBigInteger: S];
 }
 
 - (NSData*) calculateVerifier {
-    return [self calculateM1];
+    _M1 = [self calculateM1];
+    return _M1;
+}
+
+- (BOOL) verifyServer: (NSData*) serverM2 {
+    NSData * M2 = [self calculateM2: _M1];
+    return [M2 isEqualToData: serverM2];
 }
 
 @end

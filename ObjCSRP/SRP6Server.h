@@ -11,7 +11,7 @@
 @interface SRP6Server : SRP6
 
 - (NSData*) generateCredentialsWithSalt: (NSData*) salt username: (NSString*) username verifier: (NSData*) verifier;
-- (BigInteger*) calculateSecret: (NSData*) clientA;
+- (NSData*) calculateSecret: (NSData*) clientA;
 - (NSData*) verifyClient: (NSData*) clientM1;
 
 @end

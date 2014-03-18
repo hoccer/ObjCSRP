@@ -36,6 +36,16 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
     return self;
 }
 
++ (NSData*) saltForDigest: (id<SRPDigest>) digest {
+    NSMutableData * randomSalt = [NSMutableData dataWithLength: digest.length];
+    int err = SecRandomCopyBytes(kSecRandomDefault, randomSalt.length, randomSalt.mutableBytes);
+    if (err != 0) {
+        NSLog(@"RandomBytes; RNG error = %d", errno);
+        return nil;
+    }
+    return randomSalt;
+}
+
 - (BigInteger*) selectPrivateValue {
     BigInteger * private = [BigInteger bigInteger];
     BN_rand(private.n, kPrivateValueBits, -1, 0);

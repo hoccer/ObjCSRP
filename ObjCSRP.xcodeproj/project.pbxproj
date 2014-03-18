@@ -26,7 +26,7 @@
 		631F6DA6170BA15900FB28D5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6D28170B940900FB28D5 /* libcrypto.a */; };
 		63E112B118D60E260083E0C9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E112B018D60E260083E0C9 /* XCTest.framework */; };
 		63E112B718D60E260083E0C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63E112B518D60E260083E0C9 /* InfoPlist.strings */; };
-		63E112C118D60E6C0083E0C9 /* SRP6RFC5054Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */; };
+		63E112C118D60E6C0083E0C9 /* RFC5054Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C018D60E6C0083E0C9 /* RFC5054Test.m */; };
 		63E112C418D63C780083E0C9 /* BigNumUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112C318D63C780083E0C9 /* BigNumUtilities.m */; };
 		63E112CD18D63DC40083E0C9 /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E112CC18D63DC40083E0C9 /* NSData+HexString.m */; };
 		63E112CE18D64BE70083E0C9 /* srp.c in Sources */ = {isa = PBXBuildFile; fileRef = 631F6D20170B934F00FB28D5 /* srp.c */; };
@@ -41,6 +41,7 @@
 		63E1132118D6638B0083E0C9 /* BigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132018D6638B0083E0C9 /* BigInteger.m */; };
 		63E1132418D6728F0083E0C9 /* Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132318D6728F0083E0C9 /* Digest.m */; };
 		63E1132718D6A7550083E0C9 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
+		63E1132918D7ED0F0083E0C9 /* FunctionalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +111,7 @@
 		63E112B418D60E260083E0C9 /* ObjCSRP Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCSRP Tests-Info.plist"; sourceTree = "<group>"; };
 		63E112B618D60E260083E0C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63E112BA18D60E260083E0C9 /* ObjCSRP Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCSRP Tests-Prefix.pch"; sourceTree = "<group>"; };
-		63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6RFC5054Test.m; sourceTree = "<group>"; };
+		63E112C018D60E6C0083E0C9 /* RFC5054Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFC5054Test.m; sourceTree = "<group>"; };
 		63E112C218D63C780083E0C9 /* BigNumUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigNumUtilities.h; sourceTree = "<group>"; };
 		63E112C318D63C780083E0C9 /* BigNumUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigNumUtilities.m; sourceTree = "<group>"; };
 		63E112CB18D63DC40083E0C9 /* NSData+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		63E1132018D6638B0083E0C9 /* BigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigInteger.m; sourceTree = "<group>"; };
 		63E1132218D6728F0083E0C9 /* Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Digest.h; sourceTree = "<group>"; };
 		63E1132318D6728F0083E0C9 /* Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Digest.m; sourceTree = "<group>"; };
+		63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionalTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +285,8 @@
 		63E112B218D60E260083E0C9 /* ObjCSRP Tests */ = {
 			isa = PBXGroup;
 			children = (
-				63E112C018D60E6C0083E0C9 /* SRP6RFC5054Test.m */,
+				63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */,
+				63E112C018D60E6C0083E0C9 /* RFC5054Test.m */,
 				63E112B318D60E260083E0C9 /* Supporting Files */,
 			);
 			path = "ObjCSRP Tests";
@@ -460,9 +463,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63E112C118D60E6C0083E0C9 /* SRP6RFC5054Test.m in Sources */,
+				63E112C118D60E6C0083E0C9 /* RFC5054Test.m in Sources */,
 				63E112CE18D64BE70083E0C9 /* srp.c in Sources */,
 				63E112D018D64C550083E0C9 /* BigNumUtilities.m in Sources */,
+				63E1132918D7ED0F0083E0C9 /* FunctionalTest.m in Sources */,
 				63E112D118D64C590083E0C9 /* NSData+HexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
