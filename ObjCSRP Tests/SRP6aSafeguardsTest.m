@@ -28,7 +28,7 @@ static NSString * const password = @"password123";
 
 @implementation SRP6aSafeguardsTest
 
-// unfortunately this is called per test. I haven't found a way to run this once yet.
+// unfortunately this is called per test. I haven't found a way to run this only once, yet.
 // doesn't matter much, though.
 - (void) setUp {
     _digest = [DigestSHA256 digest];
@@ -102,8 +102,5 @@ static NSString * const password = @"password123";
     NSData * bogusPublicValue = [NSData dataWithBigInteger: randN];
     XCTAssertThrowsSpecific( [server calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
 }
-
-
-
 
 @end
