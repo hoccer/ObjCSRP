@@ -126,6 +126,16 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
     return [_digest doFinal];
 }
 
+- (BigInteger*) validatePublicValue: (BigInteger*) publicValue {
+    BigInteger * remainder = [BigInteger bigInteger];
+    BigIntCtx * ctx = [BigIntCtx bigIntCtx];
+    BN_mod(remainder.n, publicValue.n, _N.n, ctx.c);
+    if (BN_is_zero(remainder.n)) {
+        @throw [SRP6Exception exceptionWithName: @"BogusPublicValue" reason: @"Public value modulo N is zero." userInfo: nil];
+    }
+    return remainder;
+}
+
 + (SRP6Parameters*) CONSTANTS_1024 {
     static SRP6Parameters * p = nil;
     if (! p) {
@@ -230,4 +240,7 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
 
 }
 
+@end
+
+@implementation SRP6Exception
 @end

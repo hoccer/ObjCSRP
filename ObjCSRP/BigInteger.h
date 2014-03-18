@@ -21,8 +21,10 @@
 @property (nonatomic,readonly) NSUInteger length;
 
 + (BigInteger*) bigInteger;
++ (BigInteger*) bigIntegerWithBigInteger: (BigInteger*) other;
 + (BigInteger*) bigIntegerWithString: (NSString*) string radix: (int) radix;
 + (BigInteger*) bigIntegerWithData: (NSData*) data;
++ (BigInteger*) bigIntegerWithValue: (NSInteger) value;
 
 @end
 

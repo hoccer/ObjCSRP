@@ -42,6 +42,7 @@
 		63E1132418D6728F0083E0C9 /* Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132318D6728F0083E0C9 /* Digest.m */; };
 		63E1132718D6A7550083E0C9 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
 		63E1132918D7ED0F0083E0C9 /* FunctionalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */; };
+		63E1132B18D89F340083E0C9 /* SRP6aSafeguardsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132A18D89F340083E0C9 /* SRP6aSafeguardsTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		63E1132218D6728F0083E0C9 /* Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Digest.h; sourceTree = "<group>"; };
 		63E1132318D6728F0083E0C9 /* Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Digest.m; sourceTree = "<group>"; };
 		63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionalTest.m; sourceTree = "<group>"; };
+		63E1132A18D89F340083E0C9 /* SRP6aSafeguardsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRP6aSafeguardsTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 		63E112B218D60E260083E0C9 /* ObjCSRP Tests */ = {
 			isa = PBXGroup;
 			children = (
+				63E1132A18D89F340083E0C9 /* SRP6aSafeguardsTest.m */,
 				63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */,
 				63E112C018D60E6C0083E0C9 /* RFC5054Test.m */,
 				63E112B318D60E260083E0C9 /* Supporting Files */,
@@ -468,6 +471,7 @@
 				63E112D018D64C550083E0C9 /* BigNumUtilities.m in Sources */,
 				63E1132918D7ED0F0083E0C9 /* FunctionalTest.m in Sources */,
 				63E112D118D64C590083E0C9 /* NSData+HexString.m in Sources */,
+				63E1132B18D89F340083E0C9 /* SRP6aSafeguardsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

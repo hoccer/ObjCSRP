@@ -14,6 +14,7 @@
 #import "SRP6Parameters.h"
 #import "Digest.h"
 
+
 @interface SRP6 : NSObject
 {
     id<SRPDigest> _digest;
@@ -49,5 +50,11 @@
 - (NSData*) hashData: (NSData*) data;
 - (NSData*) calculateM1;
 - (NSData*) calculateM2: (NSData*) M1;
+- (BigInteger*) validatePublicValue: (BigInteger*) publicValue;
+
+@end
+
+
+@interface SRP6Exception : NSException
 
 @end

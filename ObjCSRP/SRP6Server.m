@@ -39,7 +39,7 @@
 
 - (NSData*) calculateSecret: (NSData*) clientA {
     BigIntCtx * ctx = [BigIntCtx bigIntCtx];
-    _A = [BigInteger bigIntegerWithData: clientA];
+    _A = [self validatePublicValue: [BigInteger bigIntegerWithData: clientA]];
     BigInteger * u = [self uWithA: _A andB: _B];
     BigInteger * tmp1 = [BigInteger bigInteger];
     BigInteger * tmp2 = [BigInteger bigInteger];

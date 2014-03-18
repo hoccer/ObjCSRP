@@ -51,12 +51,25 @@
 + (BigInteger*) bigInteger {
     return [[BigInteger alloc] init];
 }
+
++ (BigInteger*) bigIntegerWithBigInteger: (BigInteger*) other {
+    BigInteger * n = [[BigInteger alloc] init];
+    BN_copy(n.n, other.n);
+    return n;
+}
+
 + (BigInteger*) bigIntegerWithString: (NSString*) string radix: (int) radix {
     return [[BigInteger alloc] initWithString: string radix: radix];
 }
 
 + (BigInteger*) bigIntegerWithData: (NSData*) data {
     return [[BigInteger alloc] initWithData: data];
+}
+
++ (BigInteger*) bigIntegerWithValue: (NSInteger) value {
+    BigInteger * n = [[BigInteger alloc] init];
+    BN_set_word(n.n, value);
+    return n;
 }
 
 @end

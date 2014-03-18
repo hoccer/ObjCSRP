@@ -30,7 +30,7 @@ NSString * const password = @"password123";
 }
 
 - (void) testSHA224 {
-    DigestSHA1 * digest = [DigestSHA224 digest];
+    DigestSHA224 * digest = [DigestSHA224 digest];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_1024 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_2048 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_4096 username: username password: password];
@@ -38,7 +38,7 @@ NSString * const password = @"password123";
 }
 
 - (void) testSHA256 {
-    DigestSHA1 * digest = [DigestSHA256 digest];
+    DigestSHA256 * digest = [DigestSHA256 digest];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_1024 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_2048 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_4096 username: username password: password];
@@ -46,7 +46,7 @@ NSString * const password = @"password123";
 }
 
 - (void) testSHA384 {
-    DigestSHA1 * digest = [DigestSHA384 digest];
+    DigestSHA384 * digest = [DigestSHA384 digest];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_1024 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_2048 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_4096 username: username password: password];
@@ -54,7 +54,7 @@ NSString * const password = @"password123";
 }
 
 - (void) testSHA512 {
-    DigestSHA1 * digest = [DigestSHA512 digest];
+    DigestSHA512 * digest = [DigestSHA512 digest];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_1024 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_2048 username: username password: password];
     [self performSRPTestWithDigest: digest parameters: SRP6.CONSTANTS_4096 username: username password: password];

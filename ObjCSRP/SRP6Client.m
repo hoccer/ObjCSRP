@@ -32,7 +32,7 @@
 }
 
 - (NSData*) calculateSecret:(NSData *)serverB {
-    _B = [BigInteger bigIntegerWithData:serverB];
+    _B = [self validatePublicValue: [BigInteger bigIntegerWithData:serverB]];
     BigInteger * x = [self xWithSalt: _salt username: _username password: _password];
     BigInteger * k = [self k];
     BigInteger * u = [self uWithA: _A andB: _B];
