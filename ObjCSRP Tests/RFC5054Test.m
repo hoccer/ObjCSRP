@@ -99,19 +99,29 @@ static NSString * const M2_HEX =
     NSData * BRef = [NSData dataWithHexadecimalString: B_HEX];
     XCTAssert([B isEqualToData: BRef], @"Server credentials must match reference value");
 
+    NSError * error;
     NSData * SRef = [NSData dataWithHexadecimalString: S_HEX];
-    NSData * serverS = [server calculateSecret: A];
-    NSData * clientS = [client calculateSecret: B];
-    XCTAssert([clientS isEqualToData: SRef], @"Client secret must match reference value");
+    NSData * serverS = [server calculateSecret: A error: &error];
+    XCTAssert(serverS, @"server secret calculation failed: %@", error);
     XCTAssert([serverS isEqualToData: SRef], @"Server secret must match reference value");
+
+    NSData * clientS = [client calculateSecret: B error: &error];
+    XCTAssert(clientS, @"client secret calculation failed: %@", error);
+    XCTAssert([clientS isEqualToData: SRef], @"Client secret must match reference value");
 
     NSData * M1 = [client calculateVerifier];
     NSData * M1Ref = [NSData dataWithHexadecimalString: M1_HEX];
     XCTAssert([M1 isEqualToData: M1Ref], @"Client M1 must match reference value");
 
-    NSData * M2 = [server verifyClient: M1];
+    NSData * M2 = [server verifyClient: M1 error: &error];
     NSData * M2Ref = [NSData dataWithHexadecimalString: M2_HEX];
+    XCTAssert(M2, @"client verification failed: %@", error);
     XCTAssert([M2 isEqualToData: M2Ref], @"Server M2 must match reference value");
+
+    NSData * K = [client verifyServer: M2 error: &error];
+    XCTAssert( K, @"server verification failed: %@", error);
+
+    XCTAssert([K isEqualToData: server.sessionKey], @"Session keys must match");
 }
 
 @end

@@ -41,7 +41,7 @@ static NSString * const password = @"password123";
     SRP6Client * client = [[SRP6Client alloc] initWithDigest: _digest N: _params.N g: _params.g];
     [client generateCredentialsWithSalt: _salt username: username password: password];
     NSData * bogusPublicValue = [NSData dataWithBigInteger: [BigInteger bigIntegerWithValue: 0]];
-    XCTAssertThrowsSpecific( [client calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([client calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void)testClientInvalidCredentialsN {
@@ -49,7 +49,7 @@ static NSString * const password = @"password123";
     [client generateCredentialsWithSalt: _salt username: username password: password];
     BigInteger * N = [BigInteger bigIntegerWithBigInteger: _params.N];
     NSData * bogusPublicValue = [NSData dataWithBigInteger: N];
-    XCTAssertThrowsSpecific( [client calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([client calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void)testClientInvalidCredentialsTwoN {
@@ -58,7 +58,7 @@ static NSString * const password = @"password123";
     BigInteger * twoN = [BigInteger bigIntegerWithBigInteger: _params.N];
     BN_mul_word(twoN.n, 2);
     NSData * bogusPublicValue = [NSData dataWithBigInteger: twoN];
-    XCTAssertThrowsSpecific( [client calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([client calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void)testClientInvalidCredentialsRandN {
@@ -67,14 +67,14 @@ static NSString * const password = @"password123";
     BigInteger * randN = [BigInteger bigIntegerWithBigInteger: _params.N];
     BN_mul_word(randN.n, rand());
     NSData * bogusPublicValue = [NSData dataWithBigInteger: randN];
-    XCTAssertThrowsSpecific( [client calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([client calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void) testServerInvalidCredentials0 {
     SRP6Server * server = [[SRP6Server alloc] initWithDigest: _digest N: _params.N g: _params.g];
     [server generateCredentialsWithSalt: _salt username: username verifier: _verifier];
     NSData * bogusPublicValue = [NSData dataWithBigInteger: [BigInteger bigIntegerWithValue: 0]];
-    XCTAssertThrowsSpecific( [server calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([server calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void) testServerInvalidCredentialsN {
@@ -82,7 +82,7 @@ static NSString * const password = @"password123";
     [server generateCredentialsWithSalt: _salt username: username verifier: _verifier];
     BigInteger * N = [BigInteger bigIntegerWithBigInteger: _params.N];
     NSData * bogusPublicValue = [NSData dataWithBigInteger: N];
-    XCTAssertThrowsSpecific( [server calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([server calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void) testServerInvalidCredentialsTwoN {
@@ -91,7 +91,7 @@ static NSString * const password = @"password123";
     BigInteger * twoN = [BigInteger bigIntegerWithBigInteger: _params.N];
     BN_mul_word(twoN.n, 2);
     NSData * bogusPublicValue = [NSData dataWithBigInteger: twoN];
-    XCTAssertThrowsSpecific( [server calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([server calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 - (void) testServerInvalidCredentialsRandN {
@@ -100,7 +100,7 @@ static NSString * const password = @"password123";
     BigInteger * randN = [BigInteger bigIntegerWithBigInteger: _params.N];
     BN_mul_word(randN.n, rand());
     NSData * bogusPublicValue = [NSData dataWithBigInteger: randN];
-    XCTAssertThrowsSpecific( [server calculateSecret: bogusPublicValue], SRP6Exception, @"Passing a bogus public value must throw");
+    XCTAssert([server calculateSecret: bogusPublicValue error: nil] == nil, @"Passing a bogus public value must fail");
 }
 
 @end

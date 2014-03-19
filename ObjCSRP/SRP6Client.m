@@ -28,8 +28,11 @@
     return [NSData dataWithBigInteger: _A];
 }
 
-- (NSData*) calculateSecret:(NSData *)serverB {
-    _B = [self validatePublicValue: [BigInteger bigIntegerWithData:serverB]];
+- (NSData*) calculateSecret:(NSData *)serverB error: (NSError**) error {
+    _B = [self validatePublicValue: [BigInteger bigIntegerWithData:serverB] error: error];
+    if (_B == nil) {
+        return nil;
+    }
     BigInteger * x = [self xWithSalt: _salt username: _username password: _password];
     BigInteger * k = [self k];
     BigInteger * u = [self uWithA: _A andB: _B];
@@ -47,11 +50,21 @@
     return _M1;
 }
 
-- (void) verifyServer: (NSData*) serverM2 {
+- (NSData*) verifyServer: (NSData*) serverM2 error: (NSError **) error {
     NSData * M2 = [self calculateM2: _M1];
-    if (! [M2 isEqualToData: serverM2]) {
-        @throw [SRP6Exception exceptionWithName: @"ServerVerificationError" reason: @"Server verifier M2 is bogus" userInfo: nil];
+    if ([M2 isEqualToData: serverM2]) {
+        return _K;
     }
+    if (error) {
+        NSString * description = NSLocalizedString(@"Authentication failed", nil);
+        NSString * reason = NSLocalizedString(@"The servers verifier M2 did not match the local version.", nil);
+        *error = [NSError errorWithDomain: SRP6ProtocolErrorDomain
+                                     code: SRP6_KEY_VERIFICATION_ERROR
+                                 userInfo: @{ NSLocalizedDescriptionKey: description,
+                                              NSLocalizedFailureReasonErrorKey: reason,
+                                              }];
+    }
+    return nil;
 }
 
 @end

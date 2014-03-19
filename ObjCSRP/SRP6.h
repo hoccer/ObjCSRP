@@ -15,6 +15,13 @@
 #import "Digest.h"
 
 
+FOUNDATION_EXPORT NSString * const SRP6ProtocolErrorDomain;
+
+typedef enum SRP6ProtocolErrors {
+    SRP6_SAFEGUARD_VIOLATION = 23,
+    SRP6_KEY_VERIFICATION_ERROR
+} SRP6ProtocolError;
+
 @interface SRP6 : NSObject
 {
     id<SRPDigest> _digest;
@@ -26,6 +33,8 @@
     BigInteger *  _B;
     NSData     *  _K;
 }
+
+@property (nonatomic,readonly) NSData * sessionKey;
 
 //=== API ======================================================================
 
@@ -50,7 +59,7 @@
 - (NSData*) hashData: (NSData*) data;
 - (NSData*) calculateM1;
 - (NSData*) calculateM2: (NSData*) M1;
-- (BigInteger*) validatePublicValue: (BigInteger*) publicValue;
+- (BigInteger*) validatePublicValue: (BigInteger*) publicValue error: (NSError**) error;
 
 @end
 

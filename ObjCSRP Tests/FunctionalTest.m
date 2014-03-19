@@ -76,17 +76,22 @@ NSString * const password = @"password123";
 
     NSData * B = [server generateCredentialsWithSalt: salt username: username verifier: verifier];
 
-    NSData * serverS = [server calculateSecret: A];
+    NSError * error;
+    NSData * serverS = [server calculateSecret: A error: &error];
+    XCTAssert(serverS, @"error: %@", error);
 
-    NSData * clientS = [client calculateSecret: B];
+    NSData * clientS = [client calculateSecret: B error: &error];
+    XCTAssert(clientS, @"error: %@", error);
 
     XCTAssert([clientS isEqualToData: serverS], @"Client secret must match server secret");
 
     NSData * M1 = [client calculateVerifier];
 
-    NSData * M2 = [server verifyClient: M1];
+    NSData * M2 = [server verifyClient: M1 error: &error];
+    XCTAssert(M2, @"error: %@", error);
 
-    [client verifyServer: M2];
+    NSData * sessionKey = [client verifyServer: M2 error: &error];
+    XCTAssert(sessionKey, @"error: %@", error);
 }
 
 @end

@@ -12,6 +12,8 @@
 
 #import "BigInteger.h"
 
+NSString * const SRP6ProtocolErrorDomain = @"SRP6 Protocol Error";
+
 static const unsigned kSeedBufferSize   = 64;
 static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 256 bits in length
 
@@ -126,12 +128,26 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
     return [_digest doFinal];
 }
 
-- (BigInteger*) validatePublicValue: (BigInteger*) publicValue {
+- (BigInteger*) validatePublicValue: (BigInteger*) publicValue error: (NSError**) error {
     BigInteger * remainder = [publicValue mod: _N];
     if (remainder.isZero) {
-        @throw [SRP6Exception exceptionWithName: @"BogusPublicValue" reason: @"Public value modulo N is zero." userInfo: nil];
+        if (error) {
+            NSString * description = NSLocalizedString(@"Authentication failed", nil);
+            NSString * reason = NSLocalizedString(@"SRP6a safeguard violation: "
+                                                  @"The public value of the other end modulo N is zero.", nil);
+            *error = [NSError errorWithDomain: SRP6ProtocolErrorDomain
+                                         code: SRP6_SAFEGUARD_VIOLATION
+                                     userInfo: @{ NSLocalizedDescriptionKey: description,
+                                                  NSLocalizedFailureReasonErrorKey: reason,
+                                                  }];
+        }
+        return nil;
     }
     return remainder;
+}
+
+- (NSData*) sessionKey {
+    return _K;
 }
 
 + (SRP6Parameters*) CONSTANTS_1024 {
