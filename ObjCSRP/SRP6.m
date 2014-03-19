@@ -67,7 +67,7 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
 }
 
 - (BigInteger*) k {
-    [_digest update: [NSData dataWithBigInteger: _N]];
+    [_digest update: [NSData dataWithBigInteger: _N leftPaddedToLength: _N.length]];
     [_digest update: [NSData dataWithBigInteger: _g leftPaddedToLength: _N.length]];
     return [BigInteger bigIntegerWithData: [_digest doFinal]];
 }

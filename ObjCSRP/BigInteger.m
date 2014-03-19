@@ -159,9 +159,12 @@ static BN_CTX * ctx;
 }
 
 + (NSData*) dataWithBigInteger: (BigInteger*) a leftPaddedToLength: (NSUInteger) length {
-    NSMutableData * data = [NSMutableData dataWithLength: length];
-    BN_bn2bin(a.n, data.mutableBytes + (length - a.length));
-    return data;
+    if (a.length < length) {
+        NSMutableData * data = [NSMutableData dataWithLength: length];
+        BN_bn2bin(a.n, data.mutableBytes + (length - a.length));
+        return data;
+    }
+    return [NSData dataWithBigInteger: a];
 }
 
 
