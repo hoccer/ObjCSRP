@@ -37,8 +37,8 @@
     BigInteger * k = [self k];
     BigInteger * u = [self uWithA: _A andB: _B];
 
-    BigInteger * tmp = [_B subtract: [k multiply: [_g power: x modulo: _N] modulo: _N] modulo: _N];
-    BigInteger * S   = [tmp power: [[u multiply: x] add: _a] modulo: _N];
+    BigInteger * tmp = [_B minus: [k times: [_g power: x modulo: _N] modulo: _N] modulo: _N];
+    BigInteger * S   = [tmp power: [[u times: x] plus: _a] modulo: _N];
 
     _K = [self hashNumber: S];
 

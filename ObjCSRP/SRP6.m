@@ -129,7 +129,7 @@ static const unsigned kPrivateValueBits = 256; // RFC5054: SHOULD be at least 25
 }
 
 - (BigInteger*) validatePublicValue: (BigInteger*) publicValue error: (NSError**) error {
-    BigInteger * remainder = [publicValue mod: _N];
+    BigInteger * remainder = [publicValue modulo: _N];
     if (remainder.isZero) {
         if (error) {
             NSString * description = NSLocalizedString(@"Authentication failed", nil);

@@ -27,9 +27,9 @@
     BigInteger * k = [self k];
     _v = [BigInteger bigIntegerWithData: verifier];
 
-    BigInteger * tmp1 = [k multiply: _v modulo: _N];
+    BigInteger * tmp1 = [k times: _v modulo: _N];
     BigInteger * tmp2 = [_g power: _b modulo: _N];
-    _B = [tmp1 add: tmp2 modulo: _N];
+    _B = [tmp1 plus: tmp2 modulo: _N];
     return [NSData dataWithBigInteger: _B];
 }
 
@@ -39,7 +39,7 @@
         return nil;
     }
     BigInteger * u = [self uWithA: _A andB: _B];
-    BigInteger * tmp = [_A multiply: [_v power: u modulo: _N] modulo: _N];
+    BigInteger * tmp = [_A times: [_v power: u modulo: _N] modulo: _N];
     BigInteger * S = [tmp power: _b modulo: _N];
 
     _K = [self hashNumber: S];
