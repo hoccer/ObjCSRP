@@ -22,6 +22,7 @@
 
 + (BigInteger*) bigInteger;
 + (BigInteger*) bigIntegerWithBigInteger: (BigInteger*) other;
++ (BigInteger*) bigIntegerWithBIGNUM: (BIGNUM*) bn;
 + (BigInteger*) bigIntegerWithString: (NSString*) string radix: (int) radix;
 + (BigInteger*) bigIntegerWithData: (NSData*) data;
 + (BigInteger*) bigIntegerWithValue: (NSInteger) value;
