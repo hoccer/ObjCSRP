@@ -43,6 +43,12 @@
 		63E1132718D6A7550083E0C9 /* libObjCSRP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631F6CF4170B7E8900FB28D5 /* libObjCSRP.a */; };
 		63E1132918D7ED0F0083E0C9 /* FunctionalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132818D7ED0F0083E0C9 /* FunctionalTest.m */; };
 		63E1132B18D89F340083E0C9 /* SRP6aSafeguardsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E1132A18D89F340083E0C9 /* SRP6aSafeguardsTest.m */; };
+		63E1133918D9F7490083E0C9 /* SRP6.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1131018D6565E0083E0C9 /* SRP6.h */; };
+		63E1133A18D9F7490083E0C9 /* SRP6Client.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1131618D6569C0083E0C9 /* SRP6Client.h */; };
+		63E1133B18D9F7490083E0C9 /* SRP6Server.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1131918D656B00083E0C9 /* SRP6Server.h */; };
+		63E1133C18D9F7490083E0C9 /* SRP6Parameters.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1131C18D65D570083E0C9 /* SRP6Parameters.h */; };
+		63E1133D18D9F7490083E0C9 /* BigInteger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1131F18D6638B0083E0C9 /* BigInteger.h */; };
+		63E1133E18D9F7490083E0C9 /* Digest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63E1132218D6728F0083E0C9 /* Digest.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,12 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				63E1133918D9F7490083E0C9 /* SRP6.h in CopyFiles */,
+				63E1133A18D9F7490083E0C9 /* SRP6Client.h in CopyFiles */,
+				63E1133B18D9F7490083E0C9 /* SRP6Server.h in CopyFiles */,
+				63E1133C18D9F7490083E0C9 /* SRP6Parameters.h in CopyFiles */,
+				63E1133D18D9F7490083E0C9 /* BigInteger.h in CopyFiles */,
+				63E1133E18D9F7490083E0C9 /* Digest.h in CopyFiles */,
 				631F6CFD170B7E8900FB28D5 /* HCSRP.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
