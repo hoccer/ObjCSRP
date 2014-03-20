@@ -8,23 +8,44 @@
 
 #import "NSData+HexString.h"
 
+unsigned char parseNibble(unichar c) {
+    if (c >= '0' && c <= '9') {
+        return c - '0';
+    } else if (c >= 'a' && c <= 'f') {
+        return (c - 'a') + 10;
+    } else if (c >= 'A' && c <= 'F') {
+        return (c - 'A') + 10;
+    } else {
+        @throw [NSException exceptionWithName: @"Input invalid" reason: @"string is not a hex string" userInfo: nil];
+    }
+}
+
 @implementation NSData (HexString)
 
 + (id)dataWithHexadecimalString:(NSString *)inString {
     if (inString == nil) {
         return nil;
     }
-    unsigned char byte;
-    char tmp_buffer[3] = {'\0','\0','\0'};
-    char * buffer = malloc([inString length] / 2);
-    for (int i=0; i < [inString length]/2; i++) {
-        tmp_buffer[0] = [inString characterAtIndex:i*2];
-        tmp_buffer[1] = [inString characterAtIndex:i*2+1];
-        byte = strtol(tmp_buffer, NULL, 16);
-        buffer[i] = byte;
+    unsigned char byte = 0;
+    unsigned char nibble = 0;
+
+    NSUInteger size = inString.length / 2 + (inString.length % 2 ? 1 : 0);
+    NSMutableData * data = [NSMutableData dataWithLength: size];
+    unsigned char * out = data.mutableBytes;
+    for (NSUInteger i = 0; i < inString.length; i++) {
+        nibble = parseNibble([inString characterAtIndex:i]);
+        byte = (byte << 4) | nibble;
+        if ((i % 2 && inString.length % 2 == 0) || (i % 2 == 0 && inString.length % 2)) {
+            *out++ = byte;
+            byte = 0;
+        }
     }
-    return [NSData dataWithBytesNoCopy: buffer length: [inString length] / 2];
+    if (inString.length % 2) {
+        *out = byte;
+    }
+    return data;
 }
+
 
 - (NSString *)hexadecimalString {
     if (self == nil) {
