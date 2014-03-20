@@ -61,7 +61,7 @@ static BN_CTX * ctx;
 }
 
 - (NSString*) description {
-    return DSNSStringFromBIGNUM(self.n, 10);
+    return DSNSStringFromBIGNUM(self.n, 16);
 }
 
 + (BigInteger*) bigInteger {
