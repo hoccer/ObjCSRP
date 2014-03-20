@@ -168,20 +168,6 @@ static BN_CTX * ctx;
     return [NSData dataWithBIGNUM: a.n];
 }
 
-/*
- int padLength = (N.bitLength() + 7) / 8;
-
- byte[] n1_bytes = getPadded(n1, padLength);
- byte[] n2_bytes = getPadded(n2, padLength);
-
- digest.update(n1_bytes, 0, n1_bytes.length);
- digest.update(n2_bytes, 0, n2_bytes.length);
-
- byte[] output = new byte[digest.getDigestSize()];
- digest.doFinal(output, 0);
-
- return new BigInteger(1, output);
- */
 
 + (NSData*) dataWithBigInteger: (BigInteger*) a leftPaddedToLength: (NSUInteger) length {
     if (a.length < length) {
